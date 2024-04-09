@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "630137543754",
+    "firebase_url": "https://odisea-vr-firebase.firebaseio.com",
+    "project_id": "odisea-vr-firebase",
+    "storage_bucket": "odisea-vr-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630137543754:android:ccb55b50e0a947c64bdab3",
+        "android_client_info": {
+          "package_name": "com.amcnetworks.odiseavr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630137543754-uuuc85k2ennvgb94rmpfug6bt32sphao.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amcnetworks.odiseavr",
+            "certificate_hash": "b300ae6deae66327628e7c70d46460628da2d2aa"
+          }
+        },
+        {
+          "client_id": "630137543754-jjlttiq5ib58qc44aopfen5dchri978d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAdV7ApAGWgRNDi1_HcUQp5lB18EtR4vY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630137543754-jjlttiq5ib58qc44aopfen5dchri978d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "630137543754-ki0o39rqovao2r8j016f32ocrt5cjbdn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "eu.arspace.OdiseaVR",
+                "app_store_id": "1369885474"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630137543754:android:9bf04dd55e3f39d0",
+        "android_client_info": {
+          "package_name": "eu.arspace.OdiseaVR"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630137543754-mc1poboigc516v1msa7fcvqtva946p66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.arspace.OdiseaVR",
+            "certificate_hash": "b45bd907947d7cc63071875271f8b50e03317089"
+          }
+        },
+        {
+          "client_id": "630137543754-jjlttiq5ib58qc44aopfen5dchri978d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAdV7ApAGWgRNDi1_HcUQp5lB18EtR4vY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630137543754-jjlttiq5ib58qc44aopfen5dchri978d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "630137543754-ki0o39rqovao2r8j016f32ocrt5cjbdn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "eu.arspace.OdiseaVR",
+                "app_store_id": "1369885474"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

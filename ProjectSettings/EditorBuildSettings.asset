@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Samples/Google Cardboard XR Plugin for Unity/1.24.0/Hello Cardboard/Scenes/HelloCardboard.unity
-    guid: 145a2a45d7bc746b19cb68410368bf96
+    path: Assets/_Project/Scenes/SplashScreen.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/_Project/Scenes/SignIn.unity
+    guid: 46e6ec1eaa2dbdd4e86cf87755a8bdee
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 3061df1bb00def848a1277c7ad578af1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c5303e80230a2124e9acc5d2101d2412, type: 2}

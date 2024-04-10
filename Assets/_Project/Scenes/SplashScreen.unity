@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 1615573683}
   - component: {fileID: 1615573682}
   - component: {fileID: 1615573681}
+  - component: {fileID: 1615573684}
   m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
@@ -879,6 +880,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615573679}
   m_CullTransparentMesh: 1
+--- !u!114 &1615573684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615573679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a232b4d7586906d4e9b1f68953770131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  images:
+  - Language: 0
+    Sprite: {fileID: 21300000, guid: 704d2a9d9147d054d94add394f6f2bbf, type: 3}
+  - Language: 1
+    Sprite: {fileID: 21300000, guid: e4531825ccb79694197b9af2c7cd8a88, type: 3}
 --- !u!1 &1666681748
 GameObject:
   m_ObjectHideFlags: 0

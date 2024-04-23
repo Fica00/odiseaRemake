@@ -6,6 +6,15 @@ public class OpenUrlOnClick : MonoBehaviour
 {
     [SerializeField] private List<LanguageText> urls;
     private Button button;
+    
+    private void Awake()
+    {
+        button = GetComponent<Button>();
+        if (button==null)
+        {
+            Destroy(this);
+        }
+    }
 
     private void OnEnable()
     {

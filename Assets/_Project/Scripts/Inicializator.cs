@@ -7,7 +7,7 @@ public class Inicializator : MonoBehaviour
 
    private void Start()
    {
-      FirebaseManager.Instance.Init(SelectLanguage);
+      SelectLanguage();
    }
 
    private void SelectLanguage()

@@ -7,7 +7,7 @@ public class Inicializator : MonoBehaviour
 
    private void Start()
    {
-      SelectLanguage();
+      Database.Instance.Init(SelectLanguage);
    }
 
    private void SelectLanguage()

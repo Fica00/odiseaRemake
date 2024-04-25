@@ -1,5 +1,7 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MenuController : MonoBehaviour
@@ -11,18 +13,22 @@ public class MenuController : MonoBehaviour
 	[SerializeField] private Transform account;
 	[SerializeField] private Transform instructions;
 
+	[SerializeField] private TMP_InputField email;
+	[SerializeField] private TMP_InputField password;
 
-	public void Info()
+	public static event Action<bool> loginSucceededEvent;
+
+	public void InfoUI()
 	{
 		Hide();
 		info.gameObject.SetActive(true);
 	}
-	public void Register()
+	public void RegisterUi()
 	{
 		Hide();
 		register.gameObject.SetActive(true);
 	}
-	public void LogIn()
+	public void LogInUI()
 	{
 		Hide();
 		logIn.gameObject.SetActive(true);
@@ -32,12 +38,12 @@ public class MenuController : MonoBehaviour
 		Hide();
 		menu.gameObject.SetActive(true);
 	}
-	public void Account()
+	public void AccountUI()
 	{
 		Hide();
 		account.gameObject.SetActive(true);
 	}
-	public void Instructions()
+	public void InstructionsUI()
 	{
 		Hide();
 		instructions.gameObject.SetActive(true);
@@ -53,17 +59,13 @@ public class MenuController : MonoBehaviour
 		instructions.gameObject.SetActive(false);
 	}
 
-	public void Tweeter()
+
+	public void LogIn() 
 	{
-		Application.OpenURL("mailto:blah@blah.com?subject=Question%20on%20Awesome%20Game");
-	}
-	public void Facebook()
-	{
-		Application.OpenURL("https://www.facebook.com/odisea.es/");
-	}
-	public void Instagram()
-	{
-		Application.OpenURL("https://www.instagram.com/odisea/");
+		FirebaseController fb = new FirebaseController();
+
+		fb.TryLoginAndGetData(email.text, password.text, loginSucceededEvent);
+	
 	}
 
 }

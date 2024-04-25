@@ -55,18 +55,15 @@ public class MenuController : MonoBehaviour
 
 	public void Tweeter()
 	{
-		Application.OpenURL(LocaleController.Instance["tweeter"]);
+		Application.OpenURL("mailto:blah@blah.com?subject=Question%20on%20Awesome%20Game");
 	}
 	public void Facebook()
 	{
-		Application.OpenURL(LocaleController.Instance["facebook"]);
+		Application.OpenURL("https://www.facebook.com/odisea.es/");
 	}
 	public void Instagram()
 	{
-		Application.OpenURL(LocaleController.Instance["instagram"]);
+		Application.OpenURL("https://www.instagram.com/odisea/");
 	}
-	public void Contact()
-	{
-		Application.OpenURL(LocaleController.Instance["contact"]);
-	}
+
 }

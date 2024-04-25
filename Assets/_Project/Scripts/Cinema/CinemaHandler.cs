@@ -16,6 +16,7 @@ public class CinemaHandler : MonoBehaviour
 
     private GameObject stage;
     private GameObject environment;
+    private Camera mainCamera;
 
     public static bool IsVR => Application.isMobilePlatform;
 
@@ -130,13 +131,16 @@ public class CinemaHandler : MonoBehaviour
 
     private void PlayVideo(string _url, bool _stereo)
     {
+        world.gameObject.SetActive(false);
         mediaPlayer.m_StereoPacking = _stereo ? StereoPacking.TopBottom : StereoPacking.None;
         mediaPlayer.OpenVideoFromFile(MediaPlayer.FileLocation.AbsolutePathOrURL, _url);
         mediaPlayerHolder.SetActive(true);
+        mainCamera.backgroundColor=Color.black;
     }
 
     private void Awake()
     {
+        mainCamera = Camera.main;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         if (!IsVR)
         {

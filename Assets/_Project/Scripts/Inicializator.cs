@@ -22,6 +22,6 @@ public class Inicializator : MonoBehaviour
 
    private void LoadSignIn()
    {
-      SceneManager.Instance.LoadScene(SceneManager.SIGN_IN);  
+      SceneManager.Instance.LoadScene(SceneManager.CINEMA_VR);  
    }
 }

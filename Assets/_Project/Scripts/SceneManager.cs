@@ -4,6 +4,7 @@ public class SceneManager : MonoBehaviour
 {
     public const string SPLASH_SCREEN = "SplashScreen";
     public const string SIGN_IN = "SignIn";
+    public const string CINEMA_VR = "CinemaVr";
     
     public static SceneManager Instance;
 

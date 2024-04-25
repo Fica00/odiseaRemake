@@ -36,8 +36,6 @@ public class Database : MonoBehaviour
 
 	private void Load(DatabaseData _db2)
 	{
-		Debug.Log("Programs: "+ _db2.Programs.Length);
-
 		Data = _db2.Programs.Where(_o => _o.Active.HasValue && _o.Active != 0).Select(_p => new DatabasePanel
 		{
 			ID = _p.Id,

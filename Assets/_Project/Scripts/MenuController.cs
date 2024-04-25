@@ -52,4 +52,21 @@ public class MenuController : MonoBehaviour
 		account.gameObject.SetActive(false);
 		instructions.gameObject.SetActive(false);
 	}
+
+	public void Tweeter()
+	{
+		Application.OpenURL(LocaleController.Instance["tweeter"]);
+	}
+	public void Facebook()
+	{
+		Application.OpenURL(LocaleController.Instance["facebook"]);
+	}
+	public void Instagram()
+	{
+		Application.OpenURL(LocaleController.Instance["instagram"]);
+	}
+	public void Contact()
+	{
+		Application.OpenURL(LocaleController.Instance["contact"]);
+	}
 }

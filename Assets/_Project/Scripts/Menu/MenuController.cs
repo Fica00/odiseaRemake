@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_InputField resetPassword1;
     [SerializeField] private TMP_InputField resetPassword2;
     [SerializeField] private TextMeshProUGUI statusText;
+
+    [SerializeField] private Button vrCinema;
     
 
     private const string MATCH_EMAIL_PATTERN = @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@" + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
@@ -42,6 +45,21 @@ public class MenuController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        vrCinema.onClick.AddListener(LoadVRCinema);
+    }
+
+    private void OnDisable()
+    {
+        vrCinema.onClick.RemoveListener(LoadVRCinema);
+    }
+
+    private void LoadVRCinema()
+    {
+        SceneManager.Instance.LoadScene(SceneManager.CINEMA_VR);
     }
 
     public void InfoUI()

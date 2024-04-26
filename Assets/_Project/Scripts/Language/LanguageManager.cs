@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class LanguageManager : MonoBehaviour
 {
     public static LanguageType Language;
+    public static Action OnLanguageChanged;
     [SerializeField] private Button spain;
     [SerializeField] private Button portuguese;
     private Action callBack;
@@ -41,7 +42,12 @@ public class LanguageManager : MonoBehaviour
 
     private void Finish()
     {
+        OnLanguageChanged?.Invoke();
         callBack?.Invoke();
+    }
+
+    public void Close()
+    {
         gameObject.SetActive(false);
     }
 }

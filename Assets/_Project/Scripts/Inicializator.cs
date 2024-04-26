@@ -17,11 +17,12 @@ public class Inicializator : MonoBehaviour
 
    private void LogoAnimation()
    {
+      languageManager.Close();
       logoAnimation.Setup(LoadSignIn);
    }
 
    private void LoadSignIn()
    {
-      SceneManager.Instance.LoadScene(SceneManager.CINEMA_VR);  
+      SceneManager.Instance.LoadScene(SceneManager.SIGN_IN);  
    }
 }

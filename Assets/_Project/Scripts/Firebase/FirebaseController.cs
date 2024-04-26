@@ -34,7 +34,6 @@ public class FirebaseController : MonoBehaviour
                 _callBack?.Invoke(true);
                 //collect data if need, then return callback with true
                 MenuController.Instance.FirstImage();
-                MyAccount.Instance.SetPersonEmailText(_email);
             }, (_) =>
             {
                 MenuController.Instance.SetStatusText("Didn't manage to login, trying to register");
@@ -53,7 +52,6 @@ public class FirebaseController : MonoBehaviour
                 _callBack?.Invoke(true);
                 WebRequests.Instance.SetUserToken(userIdToken);
                 MenuController.Instance.FirstImage();
-                MyAccount.Instance.SetPersonEmailText(_email);
             }, (_result) => {
                 MenuController.Instance.SetStatusText("Register failed");
                 _callBack?.Invoke(false);

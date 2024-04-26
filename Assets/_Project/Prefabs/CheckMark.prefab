@@ -54,6 +54,7 @@ MonoBehaviour:
   on: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   off: {fileID: 21300000, guid: 98f75e1f45f43d4479ff4cd1a9d49eb8, type: 3}
   toggle: {fileID: 7165047718360527846}
+  checkmark: {fileID: 7165047718584396684}
 --- !u!1 &7165047718360527844
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 98f75e1f45f43d4479ff4cd1a9d49eb8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

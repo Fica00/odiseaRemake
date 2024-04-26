@@ -6,6 +6,7 @@ public class CheckMark : MonoBehaviour
    [SerializeField] private Sprite on;
    [SerializeField] private Sprite off;
    [SerializeField] private Button toggle;
+   [SerializeField] private Image checkmark;
    
    private bool isOn;
 
@@ -24,6 +25,6 @@ public class CheckMark : MonoBehaviour
    private void Toggle()
    {
       isOn = !isOn;
-      toggle.image.sprite = toggle ? on : off;
+      checkmark.sprite = isOn ? on : off;
    }
 }

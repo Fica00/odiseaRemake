@@ -1,9 +1,6 @@
 using Newtonsoft.Json;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class FirebaseController : MonoBehaviour
 {
@@ -11,11 +8,25 @@ public class FirebaseController : MonoBehaviour
     private string userLocalId;
     private string userIdToken;
 
+    PersonalInfo personalInfo = new PersonalInfo();
+
+    public static FirebaseController Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void TryLoginAndGetData(string _email, string _passwrod, Action<bool> _callBack) {
         string _loginParms = "{\"email\":\"" + _email + "\",\"password\":\"" + _passwrod +
                              "\",\"returnSecureToken\":true}";
 
-        StartCoroutine(Post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + WEB_API_KEY,
+        WebRequests.Instance.Post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + WEB_API_KEY,
             _loginParms, (_result) => {
                 Debug.Log("Successfully created account");
                 SignInResponse _signInResponse = JsonConvert.DeserializeObject<SignInResponse>(_result);
@@ -23,52 +34,48 @@ public class FirebaseController : MonoBehaviour
                 userLocalId = _signInResponse.LocalId;
                 _callBack?.Invoke(true);
                 //collect data if need, then return callback with true
+                MenuController.Instance.FirstImage();
+                personalInfo.SetMail(_email);
+                MyAccount.Instance.SetPersonEmailText();
             }, (_) =>
             {
                 Debug.Log("Didn't manage to login, trying to register");
-                Register(_callBack, _loginParms);
-            }, false));
+            }, false);
     }
 
-    private void Register(Action<bool> _callBack, string _parms) {
-        StartCoroutine(Post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + WEB_API_KEY, _parms,
+    public void Register(string _email, string _passwrod, Action<bool> _callBack) {
+        string _loginParms = "{\"email\":\"" + _email + "\",\"password\":\"" + _passwrod +
+                             "\",\"returnSecureToken\":true}";
+        WebRequests.Instance.Post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + WEB_API_KEY, _loginParms,
             (_result) => {
                 Debug.Log("Successfully registered account");
                 RegisterResponse _registerResult = JsonConvert.DeserializeObject<RegisterResponse>(_result);
                 userIdToken = _registerResult.IdToken;
                 userLocalId = _registerResult.LocalId;
                 _callBack?.Invoke(true);
-                //collect data if need, then return callback with true
+                WebRequests.Instance.SetUserToken(userIdToken);
+                MenuController.Instance.FirstImage();
+                personalInfo.SetMail(_email);
+                MyAccount.Instance.SetPersonEmailText();
             }, (_result) => {
                 Debug.Log("Register failed");
                 _callBack?.Invoke(false);
-            }));
+            });
     }
 
-    private IEnumerator Post(string _uri, string _jsonData, Action<string> _onSuccess, Action<string> _onError,
-        bool _includeHeader = true) {
-        if (userIdToken != null) {
-            if (_includeHeader) {
-                _uri = $"{_uri}?auth={userIdToken}";
-            }
-        }
+    public void ResetPassword(string _email, Action<bool> _callback)
+    {
+        string resetParms = "{\"email\":\"" + _email + "\",\"requestType\":\"PASSWORD_RESET\"}";
 
-        using (UnityWebRequest _webRequest = UnityWebRequest.Post(_uri, _jsonData)) {
-            byte[] _jsonToSend = new System.Text.UTF8Encoding().GetBytes(_jsonData);
-            _webRequest.uploadHandler = new UploadHandlerRaw(_jsonToSend);
-            _webRequest.downloadHandler = new DownloadHandlerBuffer();
-
-            yield return _webRequest.SendWebRequest();
-
-            if (_webRequest.result == UnityWebRequest.Result.Success) {
-                _onSuccess?.Invoke(_webRequest.downloadHandler.text);
-            } else {
-                _onError?.Invoke(_webRequest.error);
-            }
-
-            _webRequest.uploadHandler.Dispose();
-            _webRequest.downloadHandler.Dispose();
-            _webRequest.Dispose();
-        }
+        WebRequests.Instance.Post("https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=" + WEB_API_KEY,
+            resetParms, (_result) =>
+            {
+                Debug.Log("Reset password email sent successfully");
+                _callback?.Invoke(true);
+            }, (_) =>
+            {
+                Debug.Log("Failed to send reset password email");
+                _callback?.Invoke(false);
+            });
     }
 }

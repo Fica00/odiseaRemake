@@ -10,6 +10,9 @@ public class MenuController : MonoBehaviour
 	[SerializeField] private Transform menu;
 	[SerializeField] private Transform account;
 	[SerializeField] private Transform instructions;
+	[SerializeField] private Transform firstImage;
+	[SerializeField] private Transform forgotPassword;
+	[SerializeField] private Transform forgotPassword2;
 
 	[SerializeField] private TMP_InputField registerEmail;
 	[SerializeField] private TMP_InputField registerPassword;
@@ -17,6 +20,9 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_InputField logInEmail;
     [SerializeField] private TMP_InputField logInPassword;
 
+
+    [SerializeField] private TMP_InputField resetPassword1;
+    [SerializeField] private TMP_InputField resetPassword2;
 
     public const string MatchEmailPattern =
           @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
@@ -26,13 +32,17 @@ public class MenuController : MonoBehaviour
 				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
    + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
 
-	[SerializeField] private FirebaseController fbController;
-
-    private void FixedUpdate()
+    public static MenuController Instance;
+    private void Awake()
     {
-
-        logInPassword.contentType = TMP_InputField.ContentType.Password;
-        registerPassword.contentType = TMP_InputField.ContentType.Password;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void InfoUI()
@@ -40,7 +50,12 @@ public class MenuController : MonoBehaviour
 		Hide();
 		info.gameObject.SetActive(true);
 	}
-	public void RegisterUi()
+    public void FirstImage()
+    {
+        Hide();
+        firstImage.gameObject.SetActive(true);
+    }
+    public void RegisterUi()
 	{
 		Hide();
 		register.gameObject.SetActive(true);
@@ -59,14 +74,24 @@ public class MenuController : MonoBehaviour
 	{
 		Hide();
 		account.gameObject.SetActive(true);
-	}
+    }
 	public void InstructionsUI()
 	{
 		Hide();
 		instructions.gameObject.SetActive(true);
 	}
+	public void frgotPasswordUI()
+	{
+		Hide();
+		forgotPassword.gameObject.SetActive(true);
+	}
+    public void frgotPassword2()
+    {
+        Hide();
+        forgotPassword2.gameObject.SetActive(true);
+    }
 
-	private void Hide()
+    private void Hide()
 	{
 		info.gameObject.SetActive(false);
 		register.gameObject.SetActive(false);
@@ -74,20 +99,22 @@ public class MenuController : MonoBehaviour
 		menu.gameObject.SetActive(false);
 		account.gameObject.SetActive(false);
 		instructions.gameObject.SetActive(false);
-	}
+		firstImage.gameObject.SetActive(false);
+        forgotPassword.gameObject.SetActive(false);
+        forgotPassword2.gameObject.SetActive(false);
+
+    }
 
 	public void Register(TMP_InputField mail)
 	{
         if (IsEmail(mail.text))
         {
-			fbController.TryLoginAndGetData(registerEmail.text, registerPassword.text,Finished );
-			Debug.Log("Account Created");
+			FirebaseController.Instance.Register(registerEmail.text, registerPassword.text,Finished );
         } 
-		else Debug.Log("Invalid email");
     }
     public void Login(TMP_InputField mail)
     {
-            fbController.TryLoginAndGetData(logInEmail.text, logInPassword.text, Finished);
+        FirebaseController.Instance.TryLoginAndGetData(logInEmail.text, logInPassword.text, Finished);
     }
 
     private void Finished(bool _status)
@@ -95,8 +122,20 @@ public class MenuController : MonoBehaviour
 	    Debug.Log("Finished auth with result: "+_status);
 
     }
+    public void ResetPassword1()
+    {
+        FirebaseController.Instance.ResetPassword(resetPassword1.text, Finished);
+        Debug.Log("Mailsend to:" + resetPassword1.text);
 
-    public static bool IsEmail(string email)
+    }
+    public void ResetPassword2()
+    {
+        FirebaseController.Instance.ResetPassword(resetPassword2.text, Finished);
+        Debug.Log("Mailsend to:" + resetPassword2.text);
+
+    }
+
+    public bool IsEmail(string email)
     {
         if (email != null) return Regex.IsMatch(email, MatchEmailPattern);
         else return false;

@@ -30,16 +30,16 @@ public class LanguageManager : MonoBehaviour
     private void SetSpain()
     {
         Language = LanguageType.Spain;
-        Finis();
+        Finish();
     }
 
     private void SetPortuguese()
     {
         Language = LanguageType.Portuguese;
-        Finis();
+        Finish();
     }
 
-    private void Finis()
+    private void Finish()
     {
         callBack?.Invoke();
         gameObject.SetActive(false);

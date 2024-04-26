@@ -12,8 +12,6 @@ public class MyAccount : MonoBehaviour
 
     [SerializeField] private TMP_Text personEmail;
 
-    PersonalInfo personalInfo = new PersonalInfo();
-
     public static MyAccount Instance;
     private void Awake()
     {
@@ -26,9 +24,9 @@ public class MyAccount : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetPersonEmailText()
+    public void SetPersonEmailText(string _email)
     {
-        personEmail.text = personalInfo.email;
+        personEmail.text = _email;
     }
     public void Setup(Action _callBack)
     {

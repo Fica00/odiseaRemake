@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class FirebaseController : MonoBehaviour
 {
+    public static FirebaseController Instance;
+    
     private const string WEB_API_KEY = "AIzaSyCAdV7ApAGWgRNDi1_HcUQp5lB18EtR4vY";
     private string userLocalId;
     private string userIdToken;
-
-    PersonalInfo personalInfo = new PersonalInfo();
-
-    public static FirebaseController Instance;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -22,8 +21,8 @@ public class FirebaseController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void TryLoginAndGetData(string _email, string _passwrod, Action<bool> _callBack) {
-        string _loginParms = "{\"email\":\"" + _email + "\",\"password\":\"" + _passwrod +
+    public void TryLoginAndGetData(string _email, string _password, Action<bool> _callBack) {
+        string _loginParms = "{\"email\":\"" + _email + "\",\"password\":\"" + _password +
                              "\",\"returnSecureToken\":true}";
 
         WebRequests.Instance.Post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + WEB_API_KEY,
@@ -35,46 +34,44 @@ public class FirebaseController : MonoBehaviour
                 _callBack?.Invoke(true);
                 //collect data if need, then return callback with true
                 MenuController.Instance.FirstImage();
-                personalInfo.SetMail(_email);
-                MyAccount.Instance.SetPersonEmailText();
+                MyAccount.Instance.SetPersonEmailText(_email);
             }, (_) =>
             {
-                Debug.Log("Didn't manage to login, trying to register");
+                MenuController.Instance.SetStatusText("Didn't manage to login, trying to register");
             }, false);
     }
 
-    public void Register(string _email, string _passwrod, Action<bool> _callBack) {
-        string _loginParms = "{\"email\":\"" + _email + "\",\"password\":\"" + _passwrod +
+    public void Register(string _email, string _password, Action<bool> _callBack) {
+        string _loginParms = "{\"email\":\"" + _email + "\",\"password\":\"" + _password +
                              "\",\"returnSecureToken\":true}";
+        
         WebRequests.Instance.Post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + WEB_API_KEY, _loginParms,
             (_result) => {
-                Debug.Log("Successfully registered account");
                 RegisterResponse _registerResult = JsonConvert.DeserializeObject<RegisterResponse>(_result);
                 userIdToken = _registerResult.IdToken;
                 userLocalId = _registerResult.LocalId;
                 _callBack?.Invoke(true);
                 WebRequests.Instance.SetUserToken(userIdToken);
                 MenuController.Instance.FirstImage();
-                personalInfo.SetMail(_email);
-                MyAccount.Instance.SetPersonEmailText();
+                MyAccount.Instance.SetPersonEmailText(_email);
             }, (_result) => {
-                Debug.Log("Register failed");
+                MenuController.Instance.SetStatusText("Register failed");
                 _callBack?.Invoke(false);
             });
     }
 
     public void ResetPassword(string _email, Action<bool> _callback)
     {
-        string resetParms = "{\"email\":\"" + _email + "\",\"requestType\":\"PASSWORD_RESET\"}";
+        string _resetParms = "{\"email\":\"" + _email + "\",\"requestType\":\"PASSWORD_RESET\"}";
 
         WebRequests.Instance.Post("https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=" + WEB_API_KEY,
-            resetParms, (_result) =>
+            _resetParms, (_result) =>
             {
-                Debug.Log("Reset password email sent successfully");
+                MenuController.Instance.SetStatusText("Reset password email sent successfully");
                 _callback?.Invoke(true);
             }, (_) =>
             {
-                Debug.Log("Failed to send reset password email");
+                MenuController.Instance.SetStatusText("Failed to send reset password email");
                 _callback?.Invoke(false);
             });
     }

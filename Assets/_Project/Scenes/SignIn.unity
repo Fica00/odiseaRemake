@@ -521,7 +521,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 254306388}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ValidMail
+        m_MethodName: Register
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1782769631}
@@ -1270,6 +1270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254306389}
   - component: {fileID: 254306388}
+  - component: {fileID: 254306390}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1299,6 +1300,7 @@ MonoBehaviour:
   registerPassword: {fileID: 415104304}
   logInEmail: {fileID: 851877968}
   logInPassword: {fileID: 290254729}
+  fbController: {fileID: 254306390}
 --- !u!4 &254306389
 Transform:
   m_ObjectHideFlags: 0
@@ -1314,6 +1316,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254306390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254306387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cac8b620cc574842a1301cb02e59f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255463167
 GameObject:
   m_ObjectHideFlags: 0
@@ -6600,7 +6614,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 254306388}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ValidMail
+        m_MethodName: Login
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 851877968}

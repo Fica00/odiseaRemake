@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 public class MenuController : MonoBehaviour
 {
@@ -13,12 +15,32 @@ public class MenuController : MonoBehaviour
 	[SerializeField] private Transform account;
 	[SerializeField] private Transform instructions;
 
-	[SerializeField] private TMP_InputField email;
-	[SerializeField] private TMP_InputField password;
+	[SerializeField] private TMP_InputField registerEmail;
+	[SerializeField] private TMP_InputField registerPassword;
 
-	public static event Action<bool> loginSucceededEvent;
+    [SerializeField] private TMP_InputField logInEmail;
+    [SerializeField] private TMP_InputField logInPassword;
 
-	public void InfoUI()
+    public static event Action<bool> loginSucceededEvent;
+
+    public const string MatchEmailPattern =
+          @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
+   + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
+   + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+   + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
+
+	[SerializeField] private FirebaseController fbController;
+
+    private void FixedUpdate()
+    {
+
+        logInPassword.contentType = TMP_InputField.ContentType.Password;
+        registerPassword.contentType = TMP_InputField.ContentType.Password;
+    }
+
+    public void InfoUI()
 	{
 		Hide();
 		info.gameObject.SetActive(true);
@@ -59,13 +81,23 @@ public class MenuController : MonoBehaviour
 		instructions.gameObject.SetActive(false);
 	}
 
-
-	public void LogIn() 
+	public void Register(TMP_InputField mail)
 	{
-		FirebaseController fb = new FirebaseController();
+        if (IsEmail(mail.text))
+        {
+			fbController.TryLoginAndGetData(registerEmail.text, registerPassword.text, loginSucceededEvent);
+			Debug.Log("Account Created");
+        } 
+		else Debug.Log("Invalid email");
+    }
+    public void Login(TMP_InputField mail)
+    {
+            fbController.TryLoginAndGetData(logInEmail.text, logInPassword.text, loginSucceededEvent);
+    }
 
-		fb.TryLoginAndGetData(email.text, password.text, loginSucceededEvent);
-	
-	}
-
+    public static bool IsEmail(string email)
+    {
+        if (email != null) return Regex.IsMatch(email, MatchEmailPattern);
+        else return false;
+    }
 }

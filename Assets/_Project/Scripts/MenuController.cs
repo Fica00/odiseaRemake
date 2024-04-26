@@ -1,9 +1,5 @@
-using System.Collections;
-using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 public class MenuController : MonoBehaviour
@@ -21,7 +17,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_InputField logInEmail;
     [SerializeField] private TMP_InputField logInPassword;
 
-    public static event Action<bool> loginSucceededEvent;
 
     public const string MatchEmailPattern =
           @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
@@ -85,14 +80,20 @@ public class MenuController : MonoBehaviour
 	{
         if (IsEmail(mail.text))
         {
-			fbController.TryLoginAndGetData(registerEmail.text, registerPassword.text, loginSucceededEvent);
+			fbController.TryLoginAndGetData(registerEmail.text, registerPassword.text,Finished );
 			Debug.Log("Account Created");
         } 
 		else Debug.Log("Invalid email");
     }
     public void Login(TMP_InputField mail)
     {
-            fbController.TryLoginAndGetData(logInEmail.text, logInPassword.text, loginSucceededEvent);
+            fbController.TryLoginAndGetData(logInEmail.text, logInPassword.text, Finished);
+    }
+
+    private void Finished(bool _status)
+    {
+	    Debug.Log("Finished auth with result: "+_status);
+
     }
 
     public static bool IsEmail(string email)

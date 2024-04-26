@@ -17,19 +17,27 @@ public class FirebaseController : MonoBehaviour
 
         StartCoroutine(Post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + WEB_API_KEY,
             _loginParms, (_result) => {
+                Debug.Log("Successfully created account");
                 SignInResponse _signInResponse = JsonConvert.DeserializeObject<SignInResponse>(_result);
                 userIdToken = _signInResponse.IdToken;
                 userLocalId = _signInResponse.LocalId;
+                _callBack?.Invoke(true);
                 //collect data if need, then return callback with true
-            }, (_result) => { Register(_callBack, _loginParms); }, false));
+            }, (_) =>
+            {
+                Debug.Log("Didn't manage to login, trying to register");
+                Register(_callBack, _loginParms);
+            }, false));
     }
 
     private void Register(Action<bool> _callBack, string _parms) {
         StartCoroutine(Post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + WEB_API_KEY, _parms,
             (_result) => {
+                Debug.Log("Successfully registered account");
                 RegisterResponse _registerResult = JsonConvert.DeserializeObject<RegisterResponse>(_result);
                 userIdToken = _registerResult.IdToken;
                 userLocalId = _registerResult.LocalId;
+                _callBack?.Invoke(true);
                 //collect data if need, then return callback with true
             }, (_result) => {
                 Debug.Log("Register failed");

@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34883266}
   m_Layer: 5
-  m_Name: TextHolder
+  m_Name: ResetPassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,7 +849,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 254306388}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ResetPassword1
+        m_MethodName: ResetPassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1478,7 +1478,7 @@ GameObject:
   - component: {fileID: 157886145}
   - component: {fileID: 157886144}
   m_Layer: 5
-  m_Name: Header
+  m_Name: HeaderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2139,6 +2139,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216328976}
   m_CullTransparentMesh: 1
+--- !u!1 &223485070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 223485071}
+  - component: {fileID: 223485072}
+  m_Layer: 0
+  m_Name: WebRequests
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &223485071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223485070}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1734730361}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223485072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223485070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc4303048359fe4e9869f59a2d0b2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &231202909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,10 +2230,8 @@ GameObject:
   m_Component:
   - component: {fileID: 254306389}
   - component: {fileID: 254306388}
-  - component: {fileID: 254306390}
-  - component: {fileID: 254306392}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2215,15 +2257,16 @@ MonoBehaviour:
   instructions: {fileID: 513008032}
   firstImage: {fileID: 1251245576}
   forgotPassword: {fileID: 603490595}
-  forgotPassword2: {fileID: 102900195}
   registerEmail: {fileID: 1782769631}
   registerPassword: {fileID: 415104304}
   logInEmail: {fileID: 851877968}
   logInPassword: {fileID: 290254729}
-  resetPassword1: {fileID: 928453260}
-  resetPassword2: {fileID: 157600052}
+  resetPasswordEmailInput: {fileID: 928453260}
   statusText: {fileID: 1907087597}
+  accountEmailText: {fileID: 1457376985}
   vrCinema: {fileID: 1702336225}
+  logOutButton: {fileID: 737960197}
+  resetPasswordButtonLoginUI: {fileID: 789541514}
 --- !u!4 &254306389
 Transform:
   m_ObjectHideFlags: 0
@@ -2231,38 +2274,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254306387}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.04413, y: 618.28796, z: -1.988343}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -167.32138, y: 296.96982, z: 1.7104566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1734730361}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &254306390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254306387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cac8b620cc574842a1301cb02e59f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &254306392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254306387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc4303048359fe4e9869f59a2d0b2d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &255463167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,7 +2507,7 @@ GameObject:
   - component: {fileID: 276920415}
   - component: {fileID: 276920417}
   m_Layer: 5
-  m_Name: mid button
+  m_Name: ResetPasswordButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2599,7 +2618,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 254306388}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: frgotPasswordUI
+        m_MethodName: ResetPassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4134,7 +4153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: 250}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471707584
@@ -6443,7 +6462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: 53}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737146130
@@ -6573,7 +6592,7 @@ GameObject:
   - component: {fileID: 737960195}
   - component: {fileID: 737960197}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: LogOutButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7332,7 +7351,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 254306388}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: Menu
+        m_MethodName: LogInUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7599,6 +7618,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851877966}
   m_CullTransparentMesh: 1
+--- !u!1 &852724162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 852724165}
+  - component: {fileID: 852724164}
+  m_Layer: 0
+  m_Name: FirebaseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &852724164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852724162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cac8b620cc574842a1301cb02e59f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsLoggedIn: 0
+--- !u!4 &852724165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852724162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 64.64938, y: 88.37518, z: -0.8202667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1734730361}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856902730
 GameObject:
   m_ObjectHideFlags: 0
@@ -9785,7 +9849,7 @@ GameObject:
   - component: {fileID: 1217669229}
   - component: {fileID: 1217669231}
   m_Layer: 5
-  m_Name: Back
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11901,7 +11965,7 @@ GameObject:
   - component: {fileID: 1457376986}
   - component: {fileID: 1457376985}
   m_Layer: 5
-  m_Name: mail
+  m_Name: MailText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13037,7 +13101,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1666681752
 MonoBehaviour:
@@ -13280,6 +13344,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1734730360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734730361}
+  m_Layer: 0
+  m_Name: -- Scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734730361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734730360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 308.3655, y: 321.31815, z: -3.6987996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 254306389}
+  - {fileID: 852724165}
+  - {fileID: 223485071}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1754954343
 GameObject:
   m_ObjectHideFlags: 0
@@ -15484,9 +15582,9 @@ RectTransform:
   m_Father: {fileID: 2139130262}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -10}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 312}
   m_SizeDelta: {x: 0, y: 78.05}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1987812088
@@ -16396,10 +16494,10 @@ RectTransform:
   m_Father: {fileID: 186649121}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1893.404}
-  m_SizeDelta: {x: 0, y: 627.02}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
+  m_SizeDelta: {x: 0, y: 646.55}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &2145242897
 GameObject:

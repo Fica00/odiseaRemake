@@ -15,7 +15,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Transform instructions;
     [SerializeField] private Transform firstImage;
     [SerializeField] private Transform forgotPassword;
-    [SerializeField] private Transform forgotPassword2;
 
     [SerializeField] private TMP_InputField registerEmail;
     [SerializeField] private TMP_InputField registerPassword;
@@ -23,12 +22,13 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_InputField logInEmail;
     [SerializeField] private TMP_InputField logInPassword;
 
-    [SerializeField] private TMP_InputField resetPassword1;
-    [SerializeField] private TMP_InputField resetPassword2;
+    [SerializeField] private TMP_InputField resetPasswordEmailInput;
     [SerializeField] private TextMeshProUGUI statusText;
+    [SerializeField] private TextMeshProUGUI accountEmailText;
 
     [SerializeField] private Button vrCinema;
-    
+    [SerializeField] private Button logOutButton;
+    [SerializeField] private Button resetPasswordButtonLoginUI;
 
     private const string MATCH_EMAIL_PATTERN = @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@" + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
 				[0-9]{1,2}|25[0-5]|2[0-4][0-9])\." + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
@@ -39,22 +39,27 @@ public class MenuController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+        
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     private void OnEnable()
     {
         vrCinema.onClick.AddListener(LoadVRCinema);
+        logOutButton.onClick.AddListener(LogOut);
+        resetPasswordButtonLoginUI.onClick.AddListener(ForgotPasswordUI);
     }
 
     private void OnDisable()
     {
         vrCinema.onClick.RemoveListener(LoadVRCinema);
+        logOutButton.onClick.RemoveListener(LogOut);
+        resetPasswordButtonLoginUI.onClick.RemoveListener(ForgotPasswordUI);
     }
 
     private void LoadVRCinema()
@@ -95,6 +100,7 @@ public class MenuController : MonoBehaviour
     public void AccountUI()
     {
         Hide();
+        accountEmailText.text = PlayerPrefs.GetString("email");
         account.gameObject.SetActive(true);
     }
 
@@ -109,13 +115,7 @@ public class MenuController : MonoBehaviour
         Hide();
         forgotPassword.gameObject.SetActive(true);
     }
-
-    public void ForgotPassword2()
-    {
-        Hide();
-        forgotPassword2.gameObject.SetActive(true);
-    }
-
+    
     private void Hide()
     {
         info.gameObject.SetActive(false);
@@ -126,7 +126,6 @@ public class MenuController : MonoBehaviour
         instructions.gameObject.SetActive(false);
         firstImage.gameObject.SetActive(false);
         forgotPassword.gameObject.SetActive(false);
-        forgotPassword2.gameObject.SetActive(false);
     }
 
     public void Register(TMP_InputField _mail)
@@ -141,28 +140,34 @@ public class MenuController : MonoBehaviour
 
     private void Finished(bool _status)
     {
-        Debug.Log("Finished auth with result: " + _status);
+        Debug.Log("Finished with result: " + _status);
     }
 
-    public void ResetPassword1()
+    public void ResetPassword()
     {
-        FirebaseController.Instance.ResetPassword(resetPassword1.text, Finished);
-        Debug.Log("Mailsend to:" + resetPassword1.text);
-    }
-
-    public void ResetPassword2()
-    {
-        FirebaseController.Instance.ResetPassword(resetPassword2.text, Finished);
-        Debug.Log("Mailsend to:" + resetPassword2.text);
+        if (FirebaseController.Instance.IsLoggedIn)
+        {
+            Debug.Log(PlayerPrefs.GetString("email"));
+            FirebaseController.Instance.ResetPassword(PlayerPrefs.GetString("email"), Finished);
+            return;
+        }
+        
+        FirebaseController.Instance.ResetPassword(resetPasswordEmailInput.text, Finished);
     }
 
     public bool IsEmail(string _email)
     {
         return Regex.IsMatch(_email, MATCH_EMAIL_PATTERN);
     }
-    
+
     public void SetStatusText(string _text)
     {
         statusText.text = _text;
+    }
+
+    private void LogOut()
+    {
+        LogInUI();
+        FirebaseController.Instance.DeleteLocalUserData();
     }
 }

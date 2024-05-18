@@ -16,7 +16,8 @@ public class WebRequests : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -65,7 +66,8 @@ public class WebRequests : MonoBehaviour
         if (_webRequest.result == UnityWebRequest.Result.Success)
         {
             _onSuccess?.Invoke(_webRequest.downloadHandler.text);
-        } else
+        }
+        else
         {
             Debug.Log(_webRequest.error);
             _onError?.Invoke(_webRequest.error);
@@ -95,7 +97,8 @@ public class WebRequests : MonoBehaviour
         if (_webRequest.result == UnityWebRequest.Result.Success)
         {
             _onSuccess?.Invoke(_webRequest.downloadHandler.text);
-        } else
+        }
+        else
         {
             Debug.Log(_uri);
             Debug.Log(_webRequest.error);
@@ -124,7 +127,8 @@ public class WebRequests : MonoBehaviour
         if (_webRequest.result == UnityWebRequest.Result.Success)
         {
             _onSuccess?.Invoke(_webRequest.downloadHandler.text);
-        } else
+        }
+        else
         {
             Debug.Log(_webRequest.error);
             _onError?.Invoke(_webRequest.error);
@@ -153,7 +157,8 @@ public class WebRequests : MonoBehaviour
         if (_webRequest.result == UnityWebRequest.Result.Success)
         {
             _onSuccess?.Invoke(_webRequest.downloadHandler.text);
-        } else
+        }
+        else
         {
             Debug.Log(_webRequest.uri);
             Debug.Log(_jsonData);
@@ -180,7 +185,8 @@ public class WebRequests : MonoBehaviour
         if (_webRequest.result == UnityWebRequest.Result.Success)
         {
             _onSuccess?.Invoke(_webRequest.downloadHandler.text);
-        } else
+        }
+        else
         {
             _onError?.Invoke(_webRequest.error);
         }

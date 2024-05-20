@@ -23,6 +23,7 @@ public class CinemaHandler : MonoBehaviour
     [SerializeField] private GameObject mediaPlayerHolder;
     [SerializeField] private Button goBackButtonSection;
     [SerializeField] private Button goBackButtonVideo;
+    [SerializeField] private int defaultTheme;
 
     private GameObject stage;
     private GameObject environment;
@@ -193,7 +194,7 @@ public class CinemaHandler : MonoBehaviour
         cameraColor = mainCamera.backgroundColor;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        if (!IsVR)
+        if (!IsVR || !Application.isMobilePlatform)
         {
             foreach (var _vrScript in vrScripts)
             {
@@ -206,16 +207,16 @@ public class CinemaHandler : MonoBehaviour
 
     private void Init()
     {
-        if (IsVR)
+        if (IsVR && Application.isMobilePlatform)
         {
             xrLoader.Initialize();
             xrLoader.Start();
         }
     }
-    
+
     private void StopVR()
     {
-        if (IsVR)
+        if (IsVR && Application.isMobilePlatform)
         {
             xrLoader.Stop();
             xrLoader.Deinitialize();
@@ -225,6 +226,7 @@ public class CinemaHandler : MonoBehaviour
     private void Start()
     {
         ShowPrograms();
+        SetTheme(defaultTheme);
     }
 
     private void ShowPrograms()
@@ -247,6 +249,7 @@ public class CinemaHandler : MonoBehaviour
             _cinemaImage.Hide();
         }
     }
+
     private void OnApplicationQuit()
     {
         StopVR();

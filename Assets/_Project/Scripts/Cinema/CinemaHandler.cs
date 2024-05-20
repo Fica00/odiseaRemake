@@ -29,7 +29,7 @@ public class CinemaHandler : MonoBehaviour
     private Camera mainCamera;
     private CurrentScreen currentScreen;
     private Color cameraColor;
-    public static bool IsVR => Application.isMobilePlatform;
+    public bool IsVR;
 
     private void OnEnable()
     {

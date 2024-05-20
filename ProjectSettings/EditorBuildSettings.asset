@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/CinemaVr.unity
     guid: d7f0e3ae10bf5c04da0a99e011269af0
+  - enabled: 1
+    path: Assets/_Project/Scenes/CinemaTouch.unity
+    guid: e7f88df180bebb04ba8b7ad13003d68e
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 3061df1bb00def848a1277c7ad578af1, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 184341044521b4b15a5ee5841fa09274, type: 2}

@@ -27,6 +27,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI accountEmailText;
 
     [SerializeField] private Button vrCinema;
+    [SerializeField] private Button touchCinema;
     [SerializeField] private Button logOutButton;
     [SerializeField] private Button resetPasswordButtonLoginUI;
 
@@ -51,6 +52,7 @@ public class MenuController : MonoBehaviour
     private void OnEnable()
     {
         vrCinema.onClick.AddListener(LoadVRCinema);
+        touchCinema.onClick.AddListener(LoadTouchCinema);
         logOutButton.onClick.AddListener(LogOut);
         resetPasswordButtonLoginUI.onClick.AddListener(ForgotPasswordUI);
     }
@@ -58,6 +60,7 @@ public class MenuController : MonoBehaviour
     private void OnDisable()
     {
         vrCinema.onClick.RemoveListener(LoadVRCinema);
+        touchCinema.onClick.RemoveListener(LoadTouchCinema);
         logOutButton.onClick.RemoveListener(LogOut);
         resetPasswordButtonLoginUI.onClick.RemoveListener(ForgotPasswordUI);
     }
@@ -65,6 +68,11 @@ public class MenuController : MonoBehaviour
     private void LoadVRCinema()
     {
         SceneManager.Instance.LoadScene(SceneManager.CINEMA_VR);
+    }
+    
+    private void LoadTouchCinema()
+    {
+        SceneManager.Instance.LoadScene(SceneManager.CINEMA_TOUCH);
     }
 
     public void InfoUI()

@@ -383,7 +383,19 @@ MonoBehaviour:
   - {fileID: 1460903466}
   - {fileID: 1040449916}
   - {fileID: 964000976}
-  themes: []
+  themes:
+  - Theme: 0
+    Stage: {fileID: 1328984073937268, guid: 0a9b142c332fd134ba8f586cefbd3527, type: 3}
+    Environment: {fileID: 1781110290644226, guid: bc631d1f042316c4eb1e051ed8a38f28, type: 3}
+  - Theme: 1
+    Stage: {fileID: 1328984073937268, guid: 679476a12ef4a074184a9df29055841e, type: 3}
+    Environment: {fileID: 1166759599084110, guid: 30578b04d00a140459eaacbe4176546c, type: 3}
+  - Theme: 2
+    Stage: {fileID: 1328984073937268, guid: fe4ec6a3f5c1dda45b7179b57c9aab0a, type: 3}
+    Environment: {fileID: 1107168283927104, guid: 5df5c45e57b947b46ad234b687da3c79, type: 3}
+  - Theme: 3
+    Stage: {fileID: 1328984073937268, guid: 0a9b142c332fd134ba8f586cefbd3527, type: 3}
+    Environment: {fileID: 1887121538432782, guid: 355f6110af905074b9660a2f9abb19e1, type: 3}
   world: {fileID: 900766065}
   vrScripts:
   - {fileID: 2109361392}
@@ -392,6 +404,7 @@ MonoBehaviour:
   mediaPlayerHolder: {fileID: 1001045139}
   goBackButtonSection: {fileID: 1073926203}
   goBackButtonVideo: {fileID: 495261501}
+  defaultTheme: 2
   IsVR: 0
 --- !u!114 &370954668
 MonoBehaviour:

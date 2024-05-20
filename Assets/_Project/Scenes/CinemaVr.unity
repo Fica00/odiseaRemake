@@ -202,7 +202,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &203022460
 RectTransform:
@@ -383,7 +383,19 @@ MonoBehaviour:
   - {fileID: 1460903466}
   - {fileID: 1040449916}
   - {fileID: 964000976}
-  themes: []
+  themes:
+  - Theme: 0
+    Stage: {fileID: 1472643138591812, guid: 9aeb6d8efe2a3f94097f436aeb87e11d, type: 3}
+    Environment: {fileID: 1573615259927902, guid: 30a3e7fbd7e1db64da5b1a06c13e3928, type: 3}
+  - Theme: 1
+    Stage: {fileID: 1852374107680510, guid: 3d3126dd9f874924ca2f5c0b827157dc, type: 3}
+    Environment: {fileID: 1949812415087628, guid: 3012bef03afdd38429c92cabcee94083, type: 3}
+  - Theme: 2
+    Stage: {fileID: 1336962223042010, guid: 6ce7b53979b3b08429bbe3f66c64ec4d, type: 3}
+    Environment: {fileID: 1949812415087628, guid: 74847057657a8254d8323709c83349b2, type: 3}
+  - Theme: 3
+    Stage: {fileID: 1472643138591812, guid: 9aeb6d8efe2a3f94097f436aeb87e11d, type: 3}
+    Environment: {fileID: 1949812415087628, guid: d8894c4a291f7fe44aa2bd68fab55c52, type: 3}
   world: {fileID: 900766065}
   vrScripts:
   - {fileID: 2109361392}
@@ -392,6 +404,7 @@ MonoBehaviour:
   mediaPlayerHolder: {fileID: 1001045139}
   goBackButtonSection: {fileID: 1073926203}
   goBackButtonVideo: {fileID: 495261501}
+  defaultTheme: 2
   IsVR: 1
 --- !u!114 &370954668
 MonoBehaviour:
@@ -685,7 +698,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.17529175, y: 0.18625832, z: 1}
+  m_Size: {x: 0.17529175, y: 0.18625832, z: 0.25074902}
   m_Center: {x: 0.24346443, y: -0.0010967255, z: 0}
 --- !u!1 &495261497
 GameObject:

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using System.Text.RegularExpressions;
@@ -45,7 +46,7 @@ public class MenuController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
         Screen.orientation = ScreenOrientation.Portrait;
     }
 
@@ -67,9 +68,16 @@ public class MenuController : MonoBehaviour
 
     private void LoadVRCinema()
     {
-        SceneManager.Instance.LoadScene(SceneManager.CINEMA_VR);
+        StartCoroutine(LoadVrRoutine());
+
+        IEnumerator LoadVrRoutine()
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+            yield return new WaitForSeconds(1);
+            SceneManager.Instance.LoadScene(SceneManager.CINEMA_VR);
+        }
     }
-    
+
     private void LoadTouchCinema()
     {
         SceneManager.Instance.LoadScene(SceneManager.CINEMA_TOUCH);
@@ -123,7 +131,7 @@ public class MenuController : MonoBehaviour
         Hide();
         forgotPassword.gameObject.SetActive(true);
     }
-    
+
     private void Hide()
     {
         info.gameObject.SetActive(false);
@@ -159,7 +167,7 @@ public class MenuController : MonoBehaviour
             FirebaseController.Instance.ResetPassword(PlayerPrefs.GetString("email"), Finished);
             return;
         }
-        
+
         FirebaseController.Instance.ResetPassword(resetPasswordEmailInput.text, Finished);
     }
 

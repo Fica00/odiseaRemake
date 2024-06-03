@@ -1116,9 +1116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   email: {fileID: 1782769631}
   password: {fileID: 415104304}
-  check1: {fileID: 1479009511}
-  check2: {fileID: 1861607440}
-  check3: {fileID: 638929302}
+  check2: {fileID: 1479009511}
+  check3: {fileID: 1861607440}
 --- !u!1 &112823832
 GameObject:
   m_ObjectHideFlags: 0
@@ -5881,17 +5880,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7165047718328538942, guid: 9426516292011a04d911c3c64f8c88c0, type: 3}
   m_PrefabInstance: {fileID: 638929300}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &638929302 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7165047718328538943, guid: 9426516292011a04d911c3c64f8c88c0, type: 3}
-  m_PrefabInstance: {fileID: 638929300}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faab34d3974a5049b58e61142eae01c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &658378310
 GameObject:
   m_ObjectHideFlags: 0

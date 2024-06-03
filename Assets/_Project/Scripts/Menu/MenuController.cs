@@ -73,7 +73,7 @@ public class MenuController : MonoBehaviour
         IEnumerator LoadVrRoutine()
         {
             Screen.orientation = ScreenOrientation.LandscapeLeft;
-            yield return new WaitForSeconds(1);
+            yield return null;
             SceneManager.Instance.LoadScene(SceneManager.CINEMA_VR);
         }
     }

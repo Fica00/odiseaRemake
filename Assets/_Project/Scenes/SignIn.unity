@@ -1116,9 +1116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   email: {fileID: 1782769631}
   password: {fileID: 415104304}
-  check1: {fileID: 1479009511}
-  check2: {fileID: 1861607440}
-  check3: {fileID: 638929302}
+  check2: {fileID: 1479009511}
+  check3: {fileID: 1861607440}
 --- !u!1 &112823832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,15 +1703,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMin: 40
+  m_fontSizeMax: 50
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1768,7 +1767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: "Ver a aplica\xE7\xE3o com visor VR"
+    Text: "Ver la aplicaci\xF3n con visor VR"
   - Language: 1
     Text: "Ver a aplica\xE7\xE3o com visor VR"
 --- !u!1 &184017366
@@ -5230,15 +5229,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMin: 40
+  m_fontSizeMax: 50
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5294,7 +5293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: "Significa que volta \xE0 p\xE1gina anterior"
+    Text: "Significa que vuelves a la p\xE1gina anterior"
   - Language: 1
     Text: "Significa que volta \xE0 p\xE1gina anterior"
 --- !u!1 &603445676
@@ -5881,17 +5880,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7165047718328538942, guid: 9426516292011a04d911c3c64f8c88c0, type: 3}
   m_PrefabInstance: {fileID: 638929300}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &638929302 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7165047718328538943, guid: 9426516292011a04d911c3c64f8c88c0, type: 3}
-  m_PrefabInstance: {fileID: 638929300}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faab34d3974a5049b58e61142eae01c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &658378310
 GameObject:
   m_ObjectHideFlags: 0
@@ -5978,15 +5966,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMin: 40
+  m_fontSizeMax: 50
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -6042,7 +6030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: "Rodar o menu \xE0 esquerda"
+    Text: "Girar el men\xFA a la izquierda"
   - Language: 1
     Text: "Rodar o menu \xE0 esquerda"
 --- !u!1 &673075435
@@ -6800,15 +6788,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMin: 40
+  m_fontSizeMax: 50
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -6864,7 +6852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: Expandir o menu
+    Text: "Desplegar el men\xFA"
   - Language: 1
     Text: Expandir o menu
 --- !u!1 &766665462
@@ -8313,8 +8301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 134.7}
+  m_AnchoredPosition: {x: 0, y: 7}
+  m_SizeDelta: {x: -59.999985, y: 134.7}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &940832524
 MonoBehaviour:
@@ -8427,8 +8415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: " Se vai utilizar o visor VR poder\xE1 navegar pela aplica\xE7\xE3o mantendo
-      o olhar durante uns segundos no \xEDcone que pretende selecionar."
+    Text: " Si vas a utilizar el visor VR podr\xE1s navegar por la aplicaci\xF3n
+      manteniendo la mirada unos segundos en el icono que desees seleccionar. "
   - Language: 1
     Text: " Se vai utilizar o visor VR poder\xE1 navegar pela aplica\xE7\xE3o mantendo
       o olhar durante uns segundos no \xEDcone que pretende selecionar."
@@ -10190,15 +10178,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMin: 40
+  m_fontSizeMax: 50
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -10254,7 +10242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: "Ver a aplica\xE7\xE3o sem visor VR"
+    Text: "Ver la aplicaci\xF3n sin visor VR"
   - Language: 1
     Text: "Ver a aplica\xE7\xE3o sem visor VR"
 --- !u!1 &1240085067
@@ -10444,7 +10432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: "INSTRU\xC7\xD5ES"
+    Text: INSTRUCCIONES
   - Language: 1
     Text: "INSTRU\xC7\xD5ES"
 --- !u!1 &1251245575
@@ -12795,7 +12783,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 105.07}
+  m_SizeDelta: {x: -59.999985, y: 105.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1577550596
 MonoBehaviour:
@@ -12908,7 +12896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: " Ao olhar para os seus p\xE9s encontrar\xE1 o menu de controlo dos v\xEDdeos."
+    Text: " Mirando hacia tus pies encontrar\xE1s el men\xFA de control de los v\xEDdeos."
   - Language: 1
     Text: " Ao olhar para os seus p\xE9s encontrar\xE1 o menu de controlo dos v\xEDdeos."
 --- !u!1 &1621679645
@@ -14071,15 +14059,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMin: 40
+  m_fontSizeMax: 50
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -14135,7 +14123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: "Rodar o menu \xE0 direita"
+    Text: "Girar el men\xFA a la derecha"
   - Language: 1
     Text: "Rodar o menu \xE0 direita"
 --- !u!1001 &1861607438
@@ -15833,15 +15821,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontSizeMin: 40
+  m_fontSizeMax: 50
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -15897,7 +15885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - Language: 0
-    Text: Minimizar o menu
+    Text: "Plegar el men\xFA"
   - Language: 1
     Text: Minimizar o menu
 --- !u!1 &2040447166
